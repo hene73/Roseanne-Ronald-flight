@@ -7,12 +7,12 @@ class FlightTracker {
             departure: {
                 airport: 'ACC',
                 time: '11:45 AM GMT',
-                date: '2025-10-03'
+                date: '2025-10-08'
             },
             arrival: {
                 airport: 'SDF',
                 time: '7:30 PM EST',
-                date: '2025-10-03'
+                date: '2025-10-08'
             },
             status: 'Scheduled',
             progress: 0,
@@ -21,14 +21,7 @@ class FlightTracker {
         };
         
         this.statusUpdates = [
-            { time: 0, status: 'Scheduled', message: 'Flight scheduled and confirmed' },
-            { time: 10, status: 'Check-in Open', message: 'Online check-in is now available' },
-            { time: 20, status: 'Gate Assigned', message: 'Gate A12 assigned for departure' },
-            { time: 30, status: 'Boarding', message: 'Boarding has commenced' },
-            { time: 40, status: 'Departed', message: 'Flight has departed from ACC' },
-            { time: 60, status: 'In Flight', message: 'Cruising at 35,000 feet' },
-            { time: 80, status: 'Approaching', message: 'Beginning descent to SDF' },
-            { time: 100, status: 'Landed', message: 'Flight has arrived at SDF' }
+            { time: 0, status: 'Flight scheduled and confirmed', message: 'Flight scheduled and confirmed' }
         ];
         
         this.isTracking = false;
@@ -53,9 +46,20 @@ class FlightTracker {
     }
     
     generateUniqueReferences() {
-        // Generate unique confirmation code and booking reference
-        const confirmationCode = this.generateCode(8);
-        const bookingReference = this.generateCode(8, true);
+        // Use persistent confirmation code and booking reference
+        let confirmationCode = localStorage.getItem('flightConfirmationCode');
+        let bookingReference = localStorage.getItem('flightBookingReference');
+        
+        // If not stored, use the default values from HTML or generate new ones
+        if (!confirmationCode) {
+            confirmationCode = document.getElementById('confirmationCode').textContent || this.generateCode(8);
+            localStorage.setItem('flightConfirmationCode', confirmationCode);
+        }
+        
+        if (!bookingReference) {
+            bookingReference = document.getElementById('bookingReference').textContent || this.generateCode(8, true);
+            localStorage.setItem('flightBookingReference', bookingReference);
+        }
         
         document.getElementById('confirmationCode').textContent = confirmationCode;
         document.getElementById('bookingReference').textContent = bookingReference;
@@ -91,7 +95,7 @@ class FlightTracker {
     
     updateFlightStatus() {
         const now = new Date();
-        const flightDate = new Date('2025-10-03T11:45:00Z');
+        const flightDate = new Date('2025-10-08T11:45:00Z');
         const timeDiff = flightDate.getTime() - now.getTime();
         const hoursUntilFlight = timeDiff / (1000 * 60 * 60);
         
@@ -127,18 +131,12 @@ class FlightTracker {
         if (this.isTracking) return;
         
         this.isTracking = true;
-        let currentStep = 0;
         
-        this.trackingInterval = setInterval(() => {
-            if (currentStep < this.statusUpdates.length) {
-                const update = this.statusUpdates[currentStep];
-                this.updateLiveStatus(update.status, update.message, update.time);
-                currentStep++;
-            } else {
-                // Flight completed, stop tracking
-                this.stopLiveTracking();
-            }
-        }, this.simulationSpeed);
+        // Set status to "Flight scheduled and confirmed" and keep it constant
+        const update = this.statusUpdates[0];
+        this.updateLiveStatus(update.status, update.message, update.time);
+        
+        // No interval needed since status doesn't change
     }
     
     stopLiveTracking() {
@@ -242,8 +240,8 @@ function downloadTicket() {
 
 function addToCalendar() {
     // Create calendar event
-    const startDate = new Date('2025-10-03T11:45:00Z');
-    const endDate = new Date('2025-10-03T19:30:00Z');
+    const startDate = new Date('2025-10-08T11:45:00Z');
+    const endDate = new Date('2025-10-08T19:30:00Z');
     
     const eventDetails = {
         title: 'Flight AA 8247 - Accra to Louisville',
@@ -305,7 +303,7 @@ function generateTicketContent() {
             </div>
             <div class="section">
                 <div class="label">Date:</div>
-                <div class="value">03 OCT 2025</div>
+                <div class="value">08 OCT 2025</div>
             </div>
         </div>
         
@@ -450,5 +448,5 @@ setInterval(() => {
 console.log('Flight Tracking System Initialized - AA 8247');
 console.log('Passenger: Roseanne Ronald');
 console.log('Route: ACC → SDF');
-console.log('Date: October 3, 2025');
+console.log('Date: October 8, 2025');
 console.log('System ready for tracking...');
