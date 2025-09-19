@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="AA Flight Tracker">
+    <title>American Airlines - Flight Confirmation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Safari-specific optimizations -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiBmaWxsPSIjQzQxRTNBIi8+Cjx0ZXh0IHg9IjkwIiB5PSI5MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPkFBPC90ZXh0Pgo8L3N2Zz4=">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAgMTBIMzBMMjAgMzBIMTBMMjAgMTBaIiBmaWxsPSIjQzQxRTNBIi8+CjxwYXRoIGQ9Ik0zNSAxMEg1NUw0NSAzMEgzNUw0NSAxMFoiIGZpbGw9IiNDNDFFM0EiLz4KPHRleHQgeD0iNjAiIHk9IjI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNDNDFFM0EiIGZvbnQtd2VpZ2h0PSJib2xkIj5BTUVSSUNBTIBBSVJMSU5FUzwvdGV4dD4KPC9zdmc+" alt="American Airlines">
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link">Track Flight</a>
+                <a href="#" class="nav-link">Manage Booking</a>
+                <a href="#" class="nav-link">Check-in</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="confirmation-header">
+                <div class="status-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h1>Booking Confirmed</h1>
+                <p class="confirmation-text">Your flight has been successfully booked. Here are your booking details:</p>
+            </div>
+
+            <div class="booking-card">
+                <div class="booking-header">
+                    <div class="confirmation-number">
+                        <h2>Confirmation Number</h2>
+                        <span class="conf-code" id="confirmationCode">AA7X9K2M</span>
+                    </div>
+                    <div class="booking-reference">
+                        <h2>Booking Reference</h2>
+                        <span class="ref-code" id="bookingReference">RNLD4578</span>
+                    </div>
+                </div>
+
+                <div class="passenger-info">
+                    <h3><i class="fas fa-user"></i> Passenger Information</h3>
+                    <div class="passenger-details">
+                        <div class="detail-item">
+                            <span class="label">Name:</span>
+                            <span class="value">Roseanne Ronald</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Ticket Type:</span>
+                            <span class="value">Economy Class - Single Trip</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Amount Paid:</span>
+                            <span class="value">$1,850.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flight-info">
+                    <h3><i class="fas fa-plane"></i> Flight Information</h3>
+                    <div class="flight-route">
+                        <div class="airport departure">
+                            <div class="airport-code">ACC</div>
+                            <div class="airport-name">Kotoka International Airport</div>
+                            <div class="city">Accra, Ghana</div>
+                        </div>
+                        <div class="flight-path">
+                            <div class="plane-icon">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <div class="flight-number">AA 8247</div>
+                        </div>
+                        <div class="airport arrival">
+                            <div class="airport-code">SDF</div>
+                            <div class="airport-name">Louisville International Airport</div>
+                            <div class="city">Louisville, KY, USA</div>
+                        </div>
+                    </div>
+
+                    <div class="flight-schedule">
+                        <div class="schedule-item">
+                            <span class="label">Departure Date:</span>
+                            <span class="value">October 3, 2025 (Friday)</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="label">Departure Time:</span>
+                            <span class="value">11:45 AM GMT</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="label">Arrival Time:</span>
+                            <span class="value">7:30 PM EST</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="label">Flight Duration:</span>
+                            <span class="value">12h 45m (1 stop)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tracking-section">
+                    <h3><i class="fas fa-map-marker-alt"></i> Flight Status</h3>
+                    <div class="status-display">
+                        <div class="status-item active">
+                            <div class="status-icon"><i class="fas fa-check"></i></div>
+                            <span>Booking Confirmed</span>
+                        </div>
+                        <div class="status-item" id="checkinStatus">
+                            <div class="status-icon"><i class="fas fa-clock"></i></div>
+                            <span>Check-in Opens 24h Before</span>
+                        </div>
+                        <div class="status-item active" id="departureStatus">
+                            <div class="status-icon"><i class="fas fa-plane-departure"></i></div>
+                            <span>Flight scheduled and confirmed</span>
+                        </div>
+                        <div class="status-item" id="arrivalStatus">
+                            <div class="status-icon"><i class="fas fa-plane-arrival"></i></div>
+                            <span>Scheduled Arrival</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="trackFlight()">Track Flight Live</button>
+                    <button class="btn btn-secondary" onclick="downloadTicket()">Download E-Ticket</button>
+                    <button class="btn btn-secondary" onclick="addToCalendar()">Add to Calendar</button>
+                </div>
+            </div>
+
+            <div class="tracking-modal" id="trackingModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Live Flight Tracking - AA 8247</h3>
+                        <button class="close-btn" onclick="closeTracking()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="live-status">
+                            <div class="status-badge" id="liveStatus">Flight scheduled and confirmed</div>
+                            <div class="last-updated">Last updated: <span id="lastUpdated"></span></div>
+                        </div>
+                        <div class="flight-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <div class="progress-info">
+                                <span>Departure: 11:45 AM GMT</span>
+                                <span>Arrival: 7:30 PM EST</span>
+                            </div>
+                        </div>
+                        <div class="live-details">
+                            <div class="detail-row">
+                                <span>Current Status:</span>
+                                <span id="currentStatus">Scheduled - Awaiting Departure</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Gate:</span>
+                                <span id="gateInfo">Will be announced 2 hours before departure</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Aircraft:</span>
+                                <span>Boeing 777-300ER</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 American Airlines. All rights reserved. | <a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
